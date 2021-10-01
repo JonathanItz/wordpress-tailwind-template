@@ -1,6 +1,5 @@
-const _ = require("lodash");
-const theme = require('./theme.json');
-const tailpress = require("@jeffreyvr/tailwindcss-tailpress");
+// const theme = require('./theme.json')
+// const tailpress = require( "@jeffreyvr/tailwindcss-tailpress" )
 
 module.exports = {
     mode: 'jit',
@@ -22,16 +21,23 @@ module.exports = {
             },
         },
         extend: {
-            colors: tailpress.colorMapper(tailpress.theme('settings.color.palette', theme))
-        },
-        screens: {
-            'sm': '640px',
-            'md': '768px',
-            'lg': '1024px',
-            'xl': tailpress.theme('settings.layout.wideSize', theme)
+            colors: {
+                blue: {
+                    50: '#EFF6FF',
+                    100: '#DBEAFE',
+                    200: '#BFDBFE',
+                    300: '#93C5FD',
+                    400: '#39fff1',
+                    500: '#30D5C8',
+                    600: '#1e8e86',
+                    700: '#1D4ED8',
+                    800: '#1E40AF',
+                    900: '#1E3A8A',
+                }
+            }
         }
     },
-    plugins: [
-        tailpress.tailwind
-    ]
+    // plugins: [
+    //     tailpress.tailwind
+    // ]
 };

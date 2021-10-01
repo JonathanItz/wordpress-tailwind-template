@@ -13,75 +13,26 @@
 
 <div id="page" class="min-h-screen flex flex-col">
 
-	<header>
+	<header class="mx-auto max-w-7xl w-full px-4 py-6 flex justify-between items-center">
+		<div>
+			<svg class="w-12 text-blue-500" aria-hidden="true" focusable="false" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path fill="currentColor" d="M624 448h-24.68L359.54 117.75l53.41-73.55c5.19-7.15 3.61-17.16-3.54-22.35l-25.9-18.79c-7.15-5.19-17.15-3.61-22.35 3.55L320 63.3 278.83 6.6c-5.19-7.15-15.2-8.74-22.35-3.55l-25.88 18.8c-7.15 5.19-8.74 15.2-3.54 22.35l53.41 73.55L40.68 448H16c-8.84 0-16 7.16-16 16v32c0 8.84 7.16 16 16 16h608c8.84 0 16-7.16 16-16v-32c0-8.84-7.16-16-16-16zM320 288l116.36 160H203.64L320 288z"></path></svg>
+		</div>
 
-		<div class="mx-auto container">
-			<div class="lg:flex lg:justify-between lg:items-center border-b py-6">
-				<div class="flex justify-between items-center">
-					<div>
-						<?php if ( has_custom_logo() ) { ?>
-                            <?php the_custom_logo(); ?>
-						<?php } else { ?>
-							<div class="text-lg uppercase">
-								<a href="<?php echo get_bloginfo( 'url' ); ?>" class="font-extrabold text-lg uppercase">
-									<?php echo get_bloginfo( 'name' ); ?>
-								</a>
-							</div>
-
-							<p class="text-sm font-light text-gray-600">
-								<?php echo get_bloginfo( 'description' ); ?>
-							</p>
-
-						<?php } ?>
-					</div>
-
-					<div class="lg:hidden">
-						<a href="#" aria-label="Toggle navigation" id="primary-menu-toggle">
-							<svg viewBox="0 0 20 20" class="inline-block w-6 h-6" version="1.1"
-								 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-								<g stroke="none" stroke-width="1" fill="currentColor" fill-rule="evenodd">
-									<g id="icon-shape">
-										<path d="M0,3 L20,3 L20,5 L0,5 L0,3 Z M0,9 L20,9 L20,11 L0,11 L0,9 Z M0,15 L20,15 L20,17 L0,17 L0,15 Z"
-											  id="Combined-Shape"></path>
-									</g>
-								</g>
-							</svg>
-						</a>
-					</div>
-				</div>
-
-				<?php
-				wp_nav_menu(
-					array(
-						'container_id'    => 'primary-menu',
-						'container_class' => 'hidden bg-gray-100 mt-4 p-4 lg:mt-0 lg:p-0 lg:bg-transparent lg:block',
-						'menu_class'      => 'lg:flex lg:-mx-4',
-						'theme_location'  => 'primary',
-						'li_class'        => 'lg:mx-4',
-						'fallback_cb'     => false,
-					)
-				);
-				?>
-			</div>
+		<div class="text-blue-500 font-semibold uppercase">
+			<?php if( is_user_logged_in() ) { ?>
+				<a href="/dashboard">
+					<svg xmlns="http://www.w3.org/2000/svg" class="w-8" viewBox="0 0 20 20" fill="currentColor">
+						<path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-6-3a2 2 0 11-4 0 2 2 0 014 0zm-2 4a5 5 0 00-4.546 2.916A5.986 5.986 0 0010 16a5.986 5.986 0 004.546-2.084A5 5 0 0010 11z" clip-rule="evenodd" />
+					</svg>
+				</a>
+			<?php } else { ?>
+				<a href="/sign-in">
+					Sign In
+				</a>
+			<?php } ?>
 		</div>
 	</header>
 
-	<div id="content" class="site-content flex-grow">
-
-		<!-- Start introduction -->
-		<?php if ( is_front_page() ) : ?>
-			<div class="container mx-auto my-12 border-b pb-12">
-				<h1 class="font-bold text-lg text-secondary uppercase">TailPress</h1>
-				<h2 class="text-3xl lg:text-7xl tracking-tight font-extrabold my-4">Rapidly build your WordPress theme
-					with <a href="https://tailwindcss.com" class="text-primary">Tailwind CSS</a>.</h2>
-				<p class="max-w-screen-lg text-gray-700 text-lg font-medium mb-10">TailPress is your go-to starting
-					point for developing WordPress themes with TailwindCSS and comes with basic block-editor support out
-					of the box.</p>
-				<a href="https://github.com/jeffreyvr/tailpress"
-				   class="w-full sm:w-auto flex-none bg-gray-900 text-white text-lg leading-6 font-semibold py-3 px-6 border border-transparent rounded-xl focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-gray-900 focus:outline-none transition-colors duration-200">View
-					on Github</a>
-			</div>
-		<?php endif; ?>
-		<!-- End introduction -->
+	<div id="content" class="flex-grow">
 
 		<main>
